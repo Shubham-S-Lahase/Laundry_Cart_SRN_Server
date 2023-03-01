@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const orderRoutes = require("./routes/orderRoute"); 
 
 //parser
 app.use(express.json());
