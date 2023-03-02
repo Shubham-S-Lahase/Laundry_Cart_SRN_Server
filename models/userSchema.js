@@ -1,12 +1,12 @@
 let mongoose = require("mongoose");
-let Schema = mongoose.Schema;
+let schema = mongoose.Schema;
 
-let userSchema = new Schema(
+let userSchema = new schema(
   {
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    mobile: { type: Number, required: true, unique: true },
+    phoneNumber: { type: Number, required: true, unique: true },
     state: { type: String, required: true },
     district: { type: String, required: true },
     address: { type: String, required: true },
@@ -15,6 +15,6 @@ let userSchema = new Schema(
   { timestamps: true }
 );
 
-const UserModel = mongoose.model("Users", userSchema);
+let user = mongoose.model("user", userSchema);
 
-module.exports = UserModel;
+module.exports = user;
