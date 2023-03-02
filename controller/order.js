@@ -72,4 +72,13 @@ const getAllOrders = async (req, res) => {
 //   }
 // };
 
-module.exports = { createOrder, getAllOrders };
+//---------------------------------------------
+//sends img file to postviewpage through img tag
+const path = require("path");
+const operationIcons = async (req, res) => {
+  res
+    .status(200)
+    .sendFile(path.join(__dirname, "..", "images", req.params.filename));
+};
+
+module.exports = { createOrder, getAllOrders, operationIcons };
