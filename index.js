@@ -27,6 +27,15 @@ app.use("/api", profileRoute);
 app.use("/api", logoutRoute);
 app.use("/order", orderRoute);
 
+const product = require("./models/ProductSchema");
+app.get("/productList", async (req, res) => {
+  try {
+    let result = await product.find();
+    res.status(201).json({ status: "sucess", result });
+  } catch (e) {
+    res.status(400).json({ status: "failed", message: e.message });
+  }
+});
 //-----------------------------------------
 //setting products in database
 // const product = require("./models/ProductSchema");
