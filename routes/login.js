@@ -9,7 +9,8 @@ const secret = "laundry_cart_SN-10X";
 
 const router = express.Router();
 router.use(express.json());
-// router.use(cookieParser());
+router.use(cookieParser());
+
 
 router.post("/login", async (req, res) => {
   const { userId, password } = req.body;
@@ -49,6 +50,8 @@ router.post("/login", async (req, res) => {
         res.status(200).json("Login Successfull");
       } else {
         res.status(400).json("Incorrect Credentials");
+
+
       }
     } catch (err) {
       res.status(500).json(err);
